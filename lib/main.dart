@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() => runApp(new MyApp());
 
@@ -15,8 +18,9 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget{
-
+class MyHomePage extends StatelessWidget {
+  static const platform = const MethodChannel(
+      'flutter.rortega.com.basicchannelcommunication');
   final String title;
 
   const MyHomePage({Key key, this.title}) : super(key: key);
@@ -41,7 +45,7 @@ class MyHomePage extends StatelessWidget{
     );
   }
 
-  void _showNativeView() {
-
+  Future<Null> _showNativeView() async {
+    await platform.invokeMethod('showNativeView');
   }
 }
