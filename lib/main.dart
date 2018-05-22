@@ -23,7 +23,9 @@ class MyHomePage extends StatelessWidget {
       'flutter.rortega.com.basicchannelcommunication');
   final String title;
 
-  const MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key key, this.title}) : super(key: key) {
+    platform.setMethodCallHandler(_handleMethod);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,5 +49,13 @@ class MyHomePage extends StatelessWidget {
 
   Future<Null> _showNativeView() async {
     await platform.invokeMethod('showNativeView');
+  }
+
+  Future<dynamic> _handleMethod(MethodCall call) async {
+    switch(call.method) {
+      case "message":
+        debugPrint(call.arguments);
+        return new Future.value("");
+    }
   }
 }
