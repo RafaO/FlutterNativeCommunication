@@ -1,8 +1,4 @@
 # basic_channel_communication
 
-A new Flutter application.
+Flutter application demonstrating how to communicate between native and Flutter code.
 
-## Getting Started
-
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
