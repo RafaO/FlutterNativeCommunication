@@ -17,7 +17,7 @@ class NativeViewActivity : FlutterActivity() {
 
         setContentView(R.layout.layout)
         findViewById<Button>(R.id.button).setOnClickListener {
-            channel.invokeMethod("message", "Hello from native host")
+            channel.invokeMethod("message", "Hello from Android native host")
         }
     }
 }
